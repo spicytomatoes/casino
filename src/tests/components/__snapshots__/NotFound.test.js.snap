@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render not found page 1`] = `
+<div>
+  ERROR 404. PAGE NOT FOUND
+  <br />
+  <Link
+    replace={false}
+    to="/"
+  >
+    Retrun to Home Page
+  </Link>
+</div>
+`;
