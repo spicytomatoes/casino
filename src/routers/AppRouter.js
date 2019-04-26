@@ -1,6 +1,7 @@
 import React from "react";
 import { Router, Route, Switch } from "react-router-dom";
 import createHistory from "history/createBrowserHistory";
+import CasinoBlackJack from "../components/CasinoBlackJack";
 import HomePage from "../components/HomePage";
 import NotFoundPage from "../components/NotFound";
 import LoginPage from "../components/LoginPage";
@@ -15,6 +16,7 @@ const AppRouter = () => (
       <Switch>
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/home" component={HomePage} />
+        <PrivateRoute path="/casino-black-jack" component={CasinoBlackJack} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>
