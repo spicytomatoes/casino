@@ -1,5 +1,5 @@
 import database from "../firebase/firebase";
-
+//hi
 export const addMoney = amount => ({
   type: "ADD_MONEY",
   amount
