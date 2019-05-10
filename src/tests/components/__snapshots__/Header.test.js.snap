@@ -16,9 +16,19 @@ exports[`should render Header correctly 1`] = `
         to="/dashboard"
       >
         <h1>
-          Boilderplate
+          Fake Ass Casino
         </h1>
       </Link>
+      <div
+        className="buttons buttons--link"
+      >
+        <div>
+          Money:
+        </div>
+        <div>
+          $
+        </div>
+      </div>
       <button
         className="buttons buttons--link"
         onClick={[MockFunction]}
