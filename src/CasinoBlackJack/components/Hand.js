@@ -5,7 +5,7 @@ import { checkScore } from "../utils/utils";
 
 const Hand = ({ hand }) => {
   return (
-    <div>
+    <div className="hand">
       {hand.length > 0
         ? hand.map(({ value, suit, isOpen }) =>
             isOpen ? (

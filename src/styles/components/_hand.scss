@@ -1,0 +1,28 @@
+.hand {
+  display: flex;
+}
+
+.hand__card {
+  width: 10.5rem;
+  height: 16rem;
+  padding: 1rem;
+  border: solid 0.1rem #808080;
+  background-color: white;
+  color: black;
+  border-radius: 1rem;
+  margin: 0.3rem;
+  border: solid 0.3rem;
+}
+
+.hand__card--value {
+  font-size: 2.4rem;
+  font-weight: 400;
+  margin: 0;
+  text-align: left;
+  vertical-align: text-top;
+}
+
+.hand__card--suit {
+  font-size: 4.8rem;
+  vertical-align: text-top;
+}

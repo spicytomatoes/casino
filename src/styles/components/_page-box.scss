@@ -1,0 +1,37 @@
+.box {
+  background: fade-out($color: #000000, $amount: 0.3);
+  border: #000000 2px;
+  padding-top: $s-size;
+  margin: 0;
+  min-height: 85vh;
+  text-align: center;
+}
+
+.box__title {
+  margin: 0 0 $l-size 0;
+}
+
+.box__content {
+  display: flex;
+  margin: 0 $l-size;
+}
+
+.box__content-item {
+  box-sizing: border-box;
+  display: block;
+  font-size: $m-size;
+  font-weight: bold;
+  margin: auto;
+  text-align: center;
+}
+.box__content-item:hover {
+  cursor: pointer;
+  text-shadow: 20px black;
+  box-shadow: 20px white;
+}
+
+.box_content-item--title {
+  color: white;
+  text-decoration: none;
+  margin: $s-size 0;
+}

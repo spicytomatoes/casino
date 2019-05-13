@@ -4,6 +4,7 @@ export const InPlayPanel = ({
   handleStand,
   handleHit,
   handleDouble,
+  canDouble,
   player
 }) => {
   return (
@@ -11,7 +12,9 @@ export const InPlayPanel = ({
       <button onClick={handleHit}>Hit</button>
       <button onClick={handleStand}>Stand</button>
       {player.length === 2 ? (
-        <button onClick={handleDouble}>Double</button>
+        <button onClick={handleDouble} disabled={!canDouble}>
+          Double
+        </button>
       ) : null}
     </div>
   );

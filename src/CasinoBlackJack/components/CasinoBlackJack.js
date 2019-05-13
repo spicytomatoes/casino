@@ -1,5 +1,6 @@
 import React from "react";
 import { connect } from "react-redux";
+import numeral from "numeral";
 import Hand from "./Hand";
 import PutBetsPanel from "./PutBetsPanel";
 import InPlayPanel from "./InPlayPanel";
@@ -140,13 +141,17 @@ export class CasinoBlackJack extends React.Component {
         winnings = bet * 2.5;
         profit = bet * 1.5;
         this.props.startAddMoney(winnings);
-        this.setState({ endGameMessage: `YOU WON $${profit}!` });
+        this.setState({
+          endGameMessage: `YOU WON ${numeral(profit).format("$0,0.00")}!`
+        });
         break;
       case "WIN":
         winnings = bet * 2;
         profit = bet;
         this.props.startAddMoney(winnings);
-        this.setState({ endGameMessage: `YOU WON $${profit}!` });
+        this.setState({
+          endGameMessage: `YOU WON ${numeral(profit).format("$0,0.00")}!`
+        });
         break;
       case "TIE":
         winnings = Number(bet);
@@ -155,7 +160,9 @@ export class CasinoBlackJack extends React.Component {
         break;
       case "LOSE":
         lostAmount = bet;
-        this.setState({ endGameMessage: `YOU LOST $${lostAmount}` });
+        this.setState({
+          endGameMessage: `YOU LOST ${numeral(lostAmount).format("$0,0.00")}`
+        });
         break;
       default:
         console.log("error at switch at endGame");
@@ -178,12 +185,14 @@ export class CasinoBlackJack extends React.Component {
           </div>
         );
       case "PLAYING":
+        console.log(this.props.money, this.state.bet);
         return (
           <InPlayPanel
             handleStand={this.handleStand}
             handleHit={this.playerDraw}
             handleDouble={this.handleDouble}
             player={this.state.player}
+            canDouble={this.props.money >= this.state.bet}
           />
         );
       case "DEALER_DRAWING":
@@ -206,14 +215,21 @@ export class CasinoBlackJack extends React.Component {
 
   render() {
     return (
-      <div>
-        <Hand hand={this.state.dealer} />
-        <br />
-        <Hand hand={this.state.player} />
-        <div>
-          Bet: {this.state.bet ? this.state.bet * this.state.multiplyer : null}
+      <div className="content-container">
+        <div className="box">
+          <Hand hand={this.state.dealer} />
+          <br />
+          <Hand hand={this.state.player} />
+          <div>
+            Bet:{" "}
+            {this.state.bet
+              ? numeral(this.state.bet * this.state.multiplyer).format(
+                  "$0,0.00"
+                )
+              : null}
+          </div>
+          {this.getPanel()}
         </div>
-        {this.getPanel()}
       </div>
     );
   }
