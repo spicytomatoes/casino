@@ -31,6 +31,9 @@ export class CasinoBlackJack extends React.Component {
     this.shouldDealerDraw = this.shouldDealerDraw.bind(this);
     this.endGame = this.endGame.bind(this);
   }
+  componentDidMount() {
+    document.title = "Casino-style BlackJack";
+  }
   handleNewRound() {
     this.setState({
       deck: [],
@@ -217,17 +220,19 @@ export class CasinoBlackJack extends React.Component {
     return (
       <div className="content-container">
         <div className="box">
-          <Hand hand={this.state.dealer} />
-          <br />
-          <Hand hand={this.state.player} />
-          <div>
-            Bet:{" "}
-            {this.state.bet
-              ? numeral(this.state.bet * this.state.multiplyer).format(
-                  "$0,0.00"
-                )
-              : null}
+          <h2 className="box__title">BlackJack</h2>
+          <div className="table">
+            <h3>Dealer's Hand</h3>
+            <Hand hand={this.state.dealer} />
+            <br />
+            <h3>Your Hand</h3>
+            <Hand hand={this.state.player} />
+            <div />
           </div>
+          Bet:{" "}
+          {this.state.bet
+            ? numeral(this.state.bet * this.state.multiplyer).format("$0,0.00")
+            : null}
           {this.getPanel()}
         </div>
       </div>

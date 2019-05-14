@@ -5,20 +5,30 @@ import { checkScore } from "../utils/utils";
 
 const Hand = ({ hand }) => {
   return (
-    <div className="hand">
-      {hand.length > 0
-        ? hand.map(({ value, suit, isOpen }) =>
-            isOpen ? (
-              <Card key={uuid()} value={value} suit={suit} />
-            ) : (
-              "Card Back"
+    <div>
+      <div className="hand">
+        {hand.length > 0
+          ? hand.map(({ value, suit, isOpen }) =>
+              isOpen ? (
+                <Card key={uuid()} value={value} suit={suit} />
+              ) : (
+                <img
+                  src="/images/card-back.jpg"
+                  className="hand__card--back"
+                  key={uuid()}
+                />
+              )
             )
-          )
-        : "empty hand"}{" "}
-      <br />
-      {hand.every(card => card.isOpen) && hand.length > 0
-        ? checkScore(hand)
-        : null}
+          : ""}
+      </div>
+      <div>
+        Score:{" "}
+        {hand.length > 0
+          ? hand.every(card => card.isOpen)
+            ? checkScore(hand)
+            : checkScore([hand[0]])
+          : null}
+      </div>
     </div>
   );
 };

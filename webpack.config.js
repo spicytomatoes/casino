@@ -13,7 +13,6 @@ if (process.env.NODE_ENV === "test") {
 module.exports = env => {
   const isPorduction = env === "production";
   const CSSExtract = new ExtractTextPlugin("styles.css");
-
   return {
     entry: ["babel-polyfill", "./src/main.js"],
     output: {

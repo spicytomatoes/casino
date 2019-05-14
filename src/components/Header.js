@@ -1,5 +1,6 @@
 import React from "react";
 import numeral from "numeral";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { startLogout } from "../actions/auth";
@@ -19,6 +20,22 @@ export const Header = ({ startLogout, money }) => (
         <button className="buttons buttons--link" onClick={startLogout}>
           Logout
         </button>
+      </div>
+      <div>
+        <NavLink
+          to="/home"
+          className="header__nav-link"
+          activeClassName="header__nav-link--active"
+        >
+          Home
+        </NavLink>
+        <NavLink
+          to="/casino-black-jack"
+          className="header__nav-link"
+          activeClassName="header__nav-link--active"
+        >
+          Blackjack
+        </NavLink>
       </div>
     </div>
   </header>
