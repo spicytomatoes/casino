@@ -36,6 +36,13 @@ export const Header = ({ startLogout, money }) => (
         >
           Blackjack
         </NavLink>
+        <NavLink
+          to="/free-money"
+          className="header__nav-link"
+          activeClassName="header__nav-link--active"
+        >
+          Free Money
+        </NavLink>
       </div>
     </div>
   </header>

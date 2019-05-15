@@ -218,23 +218,21 @@ export class CasinoBlackJack extends React.Component {
 
   render() {
     return (
-      <div className="content-container">
-        <div className="box">
-          <h2 className="box__title">BlackJack</h2>
-          <div className="table">
-            <h3>Dealer's Hand</h3>
-            <Hand hand={this.state.dealer} />
-            <br />
-            <h3>Your Hand</h3>
-            <Hand hand={this.state.player} />
-            <div />
-          </div>
-          Bet:{" "}
-          {this.state.bet
-            ? numeral(this.state.bet * this.state.multiplyer).format("$0,0.00")
-            : null}
-          {this.getPanel()}
+      <div>
+        <h2 className="box__title">BlackJack</h2>
+        <div className="table">
+          <h3>Dealer's Hand</h3>
+          <Hand hand={this.state.dealer} />
+          <br />
+          <h3>Your Hand</h3>
+          <Hand hand={this.state.player} />
+          <div />
         </div>
+        Bet:{" "}
+        {this.state.bet
+          ? numeral(this.state.bet * this.state.multiplyer).format("$0,0.00")
+          : null}
+        {this.getPanel()}
       </div>
     );
   }

@@ -7,6 +7,7 @@ import LoginPage from "../components/LoginPage";
 import PrivateRoute from "./PrivateRoute";
 import PublicRoute from "./PublicRoute";
 import CasinoBlackJack from "../CasinoBlackJack/components/CasinoBlackJack";
+import FreeMoneyPage from "../components/FreeMoneyPage";
 
 export const history = createHistory();
 
@@ -17,6 +18,7 @@ const AppRouter = () => (
         <PublicRoute path="/" component={LoginPage} exact={true} />
         <PrivateRoute path="/home" component={HomePage} />
         <PrivateRoute path="/casino-black-jack" component={CasinoBlackJack} />
+        <PrivateRoute path="/free-money" component={FreeMoneyPage} />
         <Route component={NotFoundPage} />
       </Switch>
     </div>

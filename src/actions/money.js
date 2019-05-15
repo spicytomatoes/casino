@@ -53,7 +53,38 @@ export const startSetMoney = () => {
         } else {
           money = 1000;
         }
+        database.ref(`users/${uid}/money`).set(money);
         dispatch(setMoney(money));
+      });
+  };
+};
+export const startSetCounter = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    return database
+      .ref(`users/${uid}/counter`)
+      .once("value")
+      .then(snapshot => {
+        let counter;
+        if (snapshot.val() || snapshot.val() === 0) {
+          counter = snapshot.val();
+        } else {
+          counter = 0;
+        }
+        database.ref(`users/${uid}/counter`).set(counter);
+      });
+  };
+};
+export const startAddCounter = () => {
+  return (dispatch, getState) => {
+    const uid = getState().auth.uid;
+    console.log("shame!");
+    return database
+      .ref(`users/${uid}/counter`)
+      .once("value")
+      .then(snapshot => {
+        const newCount = snapshot.val() + 1;
+        database.ref(`users/${uid}/counter`).set(newCount);
       });
   };
 };

@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import AppRouter, { history } from "./routers/AppRouter";
 import configureStore from "./store/configureStore";
 import { login, logout } from "./actions/auth";
-import { startSetMoney } from "./actions/money";
+import { startSetMoney, startSetCounter } from "./actions/money";
 import "normalize.css/normalize.css";
 import "./styles/styles.scss";
 import "react-dates/lib/css/_datepicker.css";
@@ -31,6 +31,7 @@ ReactDOM.render(<LoadingPage />, document.getElementById("app"));
 firebase.auth().onAuthStateChanged(user => {
   if (user) {
     store.dispatch(login(user.uid));
+    store.dispatch(startSetCounter());
     store
       .dispatch(startSetMoney())
       .then(() => {
